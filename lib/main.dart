@@ -29,26 +29,24 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('A Quiz App'),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              Question(
-                questions[_questionIndex],
-              ),
-              ElevatedButton(
-                onPressed: _answerQuestion,
-                child: const Text('The Answer 1!'),
-              ),
-              ElevatedButton(
-                onPressed: _answerQuestion,
-                child: const Text('The Answer 2!'),
-              ),
-              ElevatedButton(
-                onPressed: _answerQuestion,
-                child: const Text('The Answer 3!'),
-              ),
-            ],
-          ),
+        body: Column(
+          children: [
+            Question(
+              questions[_questionIndex],
+            ),
+            ElevatedButton(
+              onPressed: _answerQuestion,
+              child: const Text('The Answer 1!'),
+            ),
+            ElevatedButton(
+              onPressed: _answerQuestion,
+              child: const Text('The Answer 2!'),
+            ),
+            ElevatedButton(
+              onPressed: _answerQuestion,
+              child: const Text('The Answer 3!'),
+            ),
+          ],
         ),
       ),
     );
