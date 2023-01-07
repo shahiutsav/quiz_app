@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
   const Answer(
-    this.selectHandler, {
+    this.selectHandler,
+    this.answerText, {
     super.key,
   });
-
+  final String answerText;
   final VoidCallback selectHandler;
 
   @override
@@ -40,8 +41,8 @@ class Answer extends StatelessWidget {
           foregroundColor: MaterialStateProperty.all(Colors.black),
           elevation: MaterialStateProperty.all(0),
         ),
-        child: const Text('Answer 1'),
         onPressed: selectHandler,
+        child: Text(answerText),
       ),
     );
   }
