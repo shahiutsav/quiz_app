@@ -47,6 +47,13 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   void _answerQuestion(int score) {
     _totalScore += score;
     if (_questionIndex < _questions.length) {
@@ -61,17 +68,21 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: Colors.grey[300],
-          appBar: AppBar(
-            title: const Text('A Quiz App'),
-          ),
-          body: _questionIndex < _questions.length
-              ? Quiz(
-                  questions: _questions,
-                  answerQuestion: _answerQuestion,
-                  questionIndex: _questionIndex,
-                )
-              : Result(_totalScore)),
+        backgroundColor: Colors.grey[300],
+        appBar: AppBar(
+          title: const Text('A Quiz App'),
+        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                questions: _questions,
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+              )
+            : Result(
+                resultScore: _totalScore,
+                resetHandler: _resetQuiz,
+              ),
+      ),
     );
   }
 }

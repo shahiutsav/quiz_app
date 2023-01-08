@@ -42,7 +42,12 @@ class Answer extends StatelessWidget {
           elevation: MaterialStateProperty.all(0),
         ),
         onPressed: selectHandler,
-        child: Text(answerText),
+        child: Text(
+          answerText,
+          style: const TextStyle(
+            fontSize: 20,
+          ),
+        ),
       ),
     );
   }
